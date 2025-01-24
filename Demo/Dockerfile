@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18 as builder
+FROM node:18 AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -12,6 +12,5 @@ FROM gcr.io/distroless/nodejs18
 WORKDIR /app
 COPY --from=builder /app /app
 
-# Expose port and set the startup command
 EXPOSE 8080
 CMD ["app.js"]
